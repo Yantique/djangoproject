@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Video detail</title>
+    </head>
+    <body>
+        <a href="/tube/"><h2>Movies</h2></a>
+        <a href="/login/">Login</a>
+        <br>
+        <video width="640" height="480" controls>
+            <source src="/tube/{{video.file}}" type="video/mp4">
+        </video>
+        <p>{{ video.title }}</p>
+        {% for tag in tags %}
+            <a href="/tube/?tag={{tag.name}}">#{{tag.name}}</a>
+        {% endfor %}
+    </body>
+</html>

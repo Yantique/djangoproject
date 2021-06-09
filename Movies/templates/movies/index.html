@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Main</title>
+    </head>
+    <body>
+        <a href="/tube/"><h2>Movies</h2></a>
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user }}</p>
+            <p><a href="/logout/">logout</a></p>
+        {% else %}
+            <a href="/login/">Log in</a>
+            <a href="/signup/">Sign Up</a>
+        {% endif %}
+        <form action="" method="get">
+            <input id="search" type="search" name="q">
+            <button type="submit">Search</button>
+        </form>
+        <p>{{ videos|length }} videos</p>
+        {% for video in videos %}
+        <p><a href="/tube/watch/{{video.id}}/">{{ video.title }}</a></p>
+        {% endfor %}
+        <a href="/tube/upload/">Upload video</a>
+    </body>
+</html>
